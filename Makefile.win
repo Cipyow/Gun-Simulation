@@ -1,0 +1,31 @@
+RAYLIB_PATH = C:/raylib
+
+CC     = gcc
+CFLAGS = -Wall -O2 -I. -I$(RAYLIB_PATH)/include
+LIBS   = -L$(RAYLIB_PATH)/lib -lraylib -lopengl32 -lgdi32 -lwinmm -lm
+
+TARGET = gun.exe
+
+SRCS = main.c \
+       coords.c \
+       src/algo/dda.c \
+       src/algo/bresenham.c \
+       src/algo/midcircle.c \
+       src/ui/back_button.c \
+       src/ui/cartesian.c \
+       src/ui/audio_manager.c \
+       src/screens/glock.c \
+       src/screens/kar98k.c \
+       src/screens/about.c \
+       src/screens/menu.c
+
+all: $(TARGET)
+
+$(TARGET): $(SRCS)
+	$(CC) $(CFLAGS) -o $(TARGET) $(SRCS) $(LIBS)
+
+clean:
+	rm -f $(TARGET)
+
+run: all
+	./$(TARGET)
