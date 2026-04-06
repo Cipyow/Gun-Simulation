@@ -18,6 +18,7 @@ SRCS = main.c \
        src/ui/back_button.c \
        src/ui/cartesian.c \
        src/ui/audio_manager.c \
+       src/ui/target.c \
        src/screens/about.c \
        src/screens/menu.c \
        src/screens/glock.c \
